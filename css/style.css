@@ -1,0 +1,362 @@
+/* HTML5 Boilerplate  */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
+
+::-moz-selection { background: black; background: rgba(0, 0, 0, 0.5); color: #fff; text-shadow: none; }
+::selection { background: black; background: rgba(0, 0, 0, 0.5); color: #fff; text-shadow: none; }
+
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+blockquote { margin: 1em 40px; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+label { cursor: pointer; }
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+button[disabled], input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
+
+
+
+/* Author */
+
+@font-face {
+  font-family: 'BallparkWeiner';
+  src: url('../font/ballpark/ballpark_weiner-webfont.eot');
+  src: url('../font/ballpark/ballpark_weiner-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/ballpark/ballpark_weiner-webfont.woff') format('woff'),
+       url('../font/ballpark/ballpark_weiner-webfont.ttf') format('truetype'),
+       url('../font/ballpark/ballpark_weiner-webfont.svg#BallparkWeiner') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a#fork img {
+  position: absolute; 
+  top: 0; right: 0; 
+  border: 0;
+}
+
+a { color: #1BA9D4; text-decoration: underline; cursor: pointer; }
+a:visited { color: #1BA9D4; }
+a:hover { color: #06e; }
+
+div#header {
+  background: #ffffff url(../img/bg-header.png);
+  color: #222;
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+}
+div#header > h1 {
+  font: 300% BallparkWeiner, sans-serif;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+  margin: 0;
+  padding: 0;
+}
+div#header > h1 > a,
+div#header > h1 > a:visited {
+  color: black;
+  text-decoration: none;
+}
+div#header > h2 {
+  font: normal normal 90% sans-serif;
+  margin-top: 30px;
+  color: #777777;
+}
+div#header > p {
+  font: italic normal 80% sans-serif;
+  color: #AAA;
+  margin-bottom: 25px;
+}
+
+div#header > iframe {
+  height: 20px;
+  margin: 0 5px;
+}
+/* put +1 button on a diet */
+#___plusone_0{ width:65px !important; }
+
+div#main {
+  background: #2D3743 url(../img/bg-main.png) repeat 0 0;
+  border-top: 1px solid #DDD;
+  box-shadow: inset white 0 1px, inset rgba(0, 0, 0, 0.5) 0 0 25px;
+}
+
+div#content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px 100px 20px;
+  color: white;
+  text-shadow: black 0 -1px;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 -1px;
+  font-size: 80%;
+  min-height: 1000px;
+}
+
+div#content > div#browsers {
+  margin-top: 25px;
+  text-align: center;
+  color: #2D3743;
+}
+div#content > div#browsers > em {
+  margin: 0 5px;
+}
+div#content > div#browsers + h2 {
+  margin-top: 40px;
+}
+
+div#content > h2 {
+  font: italic bold 200% Georgia, serif;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-shadow: 0 -1px black, 0 -2px #222;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 -1px, rgba(0, 0, 0, 0.3) 0 -2px;
+  padding-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
+}
+
+div#content > p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+div#content pre {
+  background: #111111;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 20px;
+  font: normal normal 90% sans-serif;
+  position: relative;
+}
+
+div#content pre:before {
+  position: absolute;
+  content: attr(class);
+  top: 5px;
+  right: 10px;
+}
+
+div#content > ul > li {
+  margin: 10px 0;
+}
+
+div#content > h3 {
+  text-transform: uppercase;
+}
+
+div#content > dl {
+  margin-bottom: 35px;
+}
+div#content > dl > dt {
+  margin: 20px 0 5px;
+  font-weight: bold;
+}
+div#content > dl > dt > i {
+  font-weight: normal;
+  border-radius: 3px;
+  margin-left: 5px;
+  padding: 0 3px 0px 3px;
+  font-size: 85%;
+  background: gray;
+  background: rgba(255, 255, 255, 0.2);
+}
+div#content > dl > dt > i.required {
+  background: red;
+  background: rgba(255, 0, 0, 0.2);
+}
+div#content > dl > dt > i.opcional {
+  background: green;
+  background: rgba(0, 250, 0, 0.2);
+}
+div#content > dl > dt > i.default {
+  background: #333333;
+  background: rgba(0, 0, 0, 0.3);
+}
+div#content > dl > dd { 
+  margin: 0; 
+}
+
+/* Demo */
+
+div#content.demo > h2 {
+  margin-bottom: 15px;
+}
+div#content.demo > pre {
+  cursor: pointer;
+}
+div#content.demo > pre.show {
+  background: none;
+  display: inline-block;
+  *dislay: inline;
+  *zoom: 1;
+  margin: 0 20px 0 0;
+  padding: 0;
+}
+div#content.demo > pre.show:before {
+  position: relative;
+  right: 0; top: 0;
+  font: normal normal 100% sans-serif;
+}
+div#content.demo > pre.show > code {
+  display: none;
+}
+
+
+div#content.demo > div#placeHolder {
+  margin-top: 50px;
+}
+
+div#content.demo > ul { 
+  list-style: none; 
+  margin: 30px -10px;
+  padding: 0;
+}
+div#content.demo > ul > li { 
+  display: inline-block; 
+  *display: inline; 
+  *zoom: 1; 
+  background: #111111;
+  background: rgba(0, 0, 0, 0.3);
+  vertical-align: top;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  max-width: 113px;
+  font-size: 85%;
+}
+div#content.demo > ul > li > img {
+  max-width: 113px;
+  margin: 5px 0px;
+}
+div#content.demo > ul > li > span {
+  display: block;
+  color: gray;
+}
+div#content.demo > ul > li > span + span {
+  margin-top: 5px;
+}
+div#content.demo > ul > li > span > i{
+  color: white;
+  margin-left: 3px;
+}
+
+div#content.demo > div#legend {
+  margin-top: 30px;
+}
+div#content.demo > div#legend > p > strong {
+  margin-right: 15px;
+}
+div#content.demo > div#legend > p > em {
+  margin-right: 5px;
+  background: #111111;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+div#content.demo > div#triggers {
+  margin-top: 30px;
+}
+div#content.demo > div#triggers > strong {
+  font-style: italic;
+  margin-right: 20px;
+}
+div#content.demo > div#triggers > span {
+  margin-right: 30px;
+  padding: 1px 3px;
+  cursor: pointer;
+}
+
+div#content.demo > div#reset {
+  margin-top: 30px;
+}
+div#content.demo > div#reset > span {
+  cursor: pointer;
+}
+
+div#content.demo > p + pre {
+  margin-top: 30px !important;
+}
+
+/* Print */
+
+@media only screen and (min-width: 35em) {
+  
+
+}
+
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } 
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
