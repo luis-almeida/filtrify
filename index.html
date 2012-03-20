@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Filtrify</title>
+
+<meta name="description" content="Filtrify">
+<meta name="keywords" content="javascript, jquery, filtering, filter, plugin" />
+<meta name="author" content="Luís Almeida">
+
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/sunburst.css">
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="js/highlight.pack.js"></script>
+<script src="js/script.js"></script>
+
+</head>
+<body>
+
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<div id="header" role="banner">
+<h1><a href="index.html">filtrify</a></h1>
+<h2>Beautiful advanced tag filtering with HTML5 and jQuery</h2>
+<p>by the same author of <a href="http://luis-almeida.github.com/jPages/">jPages</a>, <i>Luís Almeida</i></p>
+</div>
+
+<div id="main" role="main"><div id="content">
+<div id="browsers"><em>IE7 - [buggy}</em> <em>IE8+, Chrome, Firefox, Opera, Safari - (tested)</em></div>
+<h2>What?</h2>
+<p>Filtrify is an advanced tag filtering plugin, inspired by <a href="http://harvesthq.github.com/chosen/" target="_blank">Chosen</a> multiple select feature and Orman Clark’s <a href="http://webdesigntutsplus.s3.amazonaws.com/tuts/291_vertical_menu/demo/index.html" target="_blank">Vertical Navigation Menu</a>.</p>
+<p>Advanced because you can search tags within tags and filter items by multiple tags from different categories and get a live feedback on the number of items containing related tags.</p>
+
+<h2>How?</h2>
+<p>Filtrify makes use of the new HTML5 "data" attribute to store the metadata.</p>
+<p>All you have to do is for each item in your list, include a "data" attribute with the respective tags (metadata). If you have more than one category of tags, include them in another "data" attribute. You can add as much categories of tags as you need.</p>
+<p>Filtrify will then go through all the data attributes you included in your items and it will create a search menu with as many fields as the different number of categories (data-attributes) you provided. Each field label in the menu fires a "popup" filtering panel and there's where all the magic happens.</p>
+<p>The plugin instanciation is very simple, you just have to pass a "containerID" and a "placeHolderID" which is the ID of the element where you want to place the menu.</p>
+
+<h2>Markup</h2>
+
+<p>The HTML markup is really easy to understand and set up. You just have to be careful about these five things:</p>
+
+<ul>
+  <li>Insert the tags separated by <strong>", "</strong> (It's important that you leave a space after the comma).</li>
+  <li>Equal tags must always have the exact same text (case sensitive!).</li>
+  <li>If a tag has ", " in its text, you have to insert "\" before and after the comma, e.g.,  imagine "foo, bar" is a tag, you'd have to insert it like this: "foo\,\ bar".</li>
+  <li>Always use the same sequence of categories in all your items in case that you have more than one category of tags.</li>
+  <li>Try not to repeat the same tags in a category.</li>
+</ul>
+
+<p>So, imagine that you have a list of singers/bands and each one of them have a list of "genre" tags. Your HTML would have to look like this:</p>
+
+<pre class="html"><code>&lt;div id="placeHolder"&gt;&lt;/div&gt;
+
+&lt;ul id="container"&gt;
+    &lt;li data-genre="pop, rock, british, classic rock"&gt; The Beatles &lt;/li&gt;
+    &lt;li data-genre="rock, british, blues, classic rock"&gt; The Rolling Stones &lt;/li&gt;
+    &lt;li data-genre="alternative, electronic, female vocalists"&gt; Björk &lt;/li&gt;
+    &lt;li data-genre="rock, alternative, grunge"&gt; Foo Fighters &lt;/li&gt;
+    &lt;li data-genre="rock, classic rock"&gt; Bruce Springsteen &lt;/li&gt;
+    ...
+&lt;/ul&gt;
+</code></pre>
+
+<p>Then you just have to instantiate the plugin when the document is ready and pass the "containerID" and "placeHolderID":</p>
+
+<pre class="javascript"><code>$(function() {
+
+    $.filtrify("container", "placeHolder");
+
+});
+</code></pre>
+
+<p>And that's it! Check out the demos below to see it in action.</p>
+
+
+<h2>Demos</h2>
+<ul>
+  <li><a href="music.html">Single category</a></li>
+  <li><a href="movies.html">Multiple categories</a></li>
+  <li><a href="highlight.html">Highlight matched items with the callback function</a></li>
+  <li><a href="legend.html">Add a legend with the callback function</a></li>
+  <li><a href="query.html">Instantiate with a custom query</a></li>
+  <li><a href="trigger.html">Trigger a custom query</a></li>
+  <li><a href="reset.html">Reset all filters</a></li>
+  <li><a href="close.html">Close panel after adding a tag</a></li>
+  <li><a href="block.html">Block "data" attributes from being added as categories</a></li>
+  <li><a href="jPages.html">Decrease page load with jPages and Lazy Load</a></li>
+</ul>
+
+<h2>Style</h2>
+<p>Filtrify default looks was inspired by Orman Clark’s <a href="http://webdesigntutsplus.s3.amazonaws.com/tuts/291_vertical_menu/demo/index.html" target="_blank">Vertical Navigation Menu</a> - see <a href="http://webdesign.tutsplus.com/tutorials/site-elements/orman-clarks-vertical-navigation-menu-the-css3-version/">tutorial</a>.</p>
+<p>The plugin CSS file might look a bit confusing and long at the beggining but I'm sure you'll find it easy to costumize after inspecting the HTML for just a bit.</p>
+<p>Filtrify relies heavily in the ":before" and ":after" pseudo-elements and in the "content" property. If you're not familiar with them, here is a great <a href="http://coding.smashingmagazine.com/2011/07/13/learning-to-use-the-before-and-after-pseudo-elements-in-css/">article</a> to get started. Don't forget that IE8 only supports the "content" property if a !DOCTYPE is specified. If you also want to fully support IE7 you can try <a href="http://code.google.com/p/ie7-js/">IE7.js</a> (not tested!).</p>
+<p>For the icons, I used <a href="http://nodeca.github.com/fontomas/">fontomas</a> to extract only the icons being used from the <a href="http://www.justbenicestudio.com/studio/websymbols/">web symbols</a> and <a href="http://somerandomdude.com/work/iconic/">iconic</a> webfonts. Don't forget to include the font files and correct the url in the CSS file.</p>
+
+<h2>Documentation</h2>
+
+<h3>Instantiation:</h3>
+<pre><code>$.filtrify( containerID, placeHolderID, options );</code></pre>
+
+<h3>Arguements:</h3>
+
+<dl>
+  <dt>containerID <i>string</i> <i class="required">required</i></dt>
+  <dd>The ID of the container of the items you want to apply the plugin to.</dd>
+
+  <dt>placeHolderID <i>string</i> <i class="required">required</i></dt>
+  <dd>The ID of the element where you want to place the generated menu.</dd>
+
+  <dt>options <i>object</i> <i class="opcional">optional</i></dt>
+  <dd>Plugin options. See below.</dd>
+</dl>
+
+<h3>Options [type] [default]:</h3>
+
+<dl>
+  <dt>noresults <i>String</i><i class="default">"No results match"</i></dt>
+  <dd>In this parameter you can set the "No results" search text when you're searching for tags.</dd>
+
+  <dt>hide <i>Boolean</i><i class="default">true</i></dt>
+  <dd>By default filtrify hides all the items that don't match the filtering query. If you set hide to false, filtrify will no longer hide the mismatched ones. Because you can still have access to the matched and mismatched items in the callback function, you can then do whatever you want with the result of the query. See the <a href="highlight.html">highlight demo</a>.</dd>
+
+  <dt>close <i>Boolean</i><i class="default">false</i></dt>
+  <dd>If you want the filtering panel to close after adding a tag, set close to "true". See <a href="close.html">demo</a>.</dd>
+
+  <dt>query <i>Object</i><i class="default">no default</i></dt>
+  <dd>You can instantiate the plugin with a default filtering query. This parameter receives an object with the same sturcture as the trigger method (See below). See <a href="query.html">demo</a>.</dd>
+
+  <dt>block <i>Array</i><i class="default">empty array</i></dt>
+  <dd>Filtrify goes through all the "data" attributes in your items and assumes they are all categories of metadata. If you need to use a data attribute to store some information and you don't want the plugin to index it as a category, you can add that "data" attribute to the block list. Filtrify won't think it's a category anymore. See <a href="block.html">demo</a>.</dd>
+
+  <dt>callback <i>function</i><i class="default">function (query, match, mismatch) {}</i></dt>
+  <dd>In this parameter you can pass a function that will run everytime a tag is added or removed. This function receives three arguments: The filtering query (object) and two HTML collections: the matched items (match) and the mismatched ones (mismatch).</dd>
+  <dd>There are a lot of interesting things you can do using the callback function, like adding a <a href="legend.html">legend</a>, <a href="highlight.html">highlighting matched items</a>, or even adding <a href="jpages.html">pagination, animations and lazy loading of images</a> with jPages, Animate.css and lazyload.</dd>
+
+</dl>
+
+<h3>Methods:</h3>
+
+<dl>
+  <dt>Create an instance</dt>
+  <dd><pre><code>var ft = $.filtrify("containerID", "placeHolderID");</code></pre></dd>
+
+  <dt>Reset</dt>
+  <dd><pre><code>ft.reset();</code></pre></dd>
+
+  <dt>Trigger</dt>
+  <dd><pre><code>var query = { 
+  category1 : [tags], 
+  category2 : [tags], 
+  ... 
+};
+
+ft.trigger( query );</code></pre></dd>
+</dl>
+
+<p>See <a href="trigger.html">trigger</a> and <a href="reset">reset</a> demos to have a better understanding of their usage.</p>
+
+<h2>Performance</h2>
+<p>This is the second plugin i publish. The first one was <a href="http://luis-almeida.github.com/jPages/">jPages</a> and once again filtrify is a client side solution for a problem. If I could I would never leave the browser!</p>
+<p>If you were concerned about performance, you probably seen in the demos that filtering function runs really fast even in extended lists with a lot of categories. But of course once again, there's the page load time issue, especially if you have a lot of images in your list.</p>
+<p>If that's the case you can use <a href="http://luis-almeida.github.com/jPages/">jPages</a> with <a href="http://www.appelsiini.net/projects/lazyload">lazy load</a>. You even add pagination, CSS3 or jQuery animations with <a href="http://daneden.me/animate/">Animate.css</a> and a ton of more features jPages provides.</p>
+<p>Se the demo <a href="jpages.html">here</a>.</p>
+
+<h2>Road map</h2>
+<p>I intend to add more features in the future and especially make Filtrify touch friendly and responsive, but it will all depend on the amount of feedback I have from people actually using it. So if you're using Filtrify let me know!</p>
+<p>I'm new to twitter but you can get in touch with me <a style="color:#099;" href="https://twitter.com/#!/lmgalmeida">there</a>. You can also visit my <a style="color:#DCF7DD;" href="https://github.com/luis-almeida">github</a> or send me an <a style="color:#DD4B39;" href="mailto:lmg.almeida@gmail.com">email</a>.</p>
+
+</div></div>
+
+<a id="fork" href="http://github.com/luis-almeida"><img src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+
+<!--<script>
+var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>-->
+</body>
+</html>
