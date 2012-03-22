@@ -6,6 +6,7 @@ Filtrify is an advanced tag filtering plugin, inspired by [Chosen](http://harves
 Advanced because you can search tags within tags and filter items by multiple tags from different categories and get a live feedback on the number of items containing related tags.
 
 
+
 ### How?
 Filtrify makes use of the new HTML5 "data" attribute to store the metadata.
 All you have to do is for each item in your list, include a "data" attribute with the respective tags (metadata). If you have more than one category of tags, include them in another "data" attribute. You can add as much categories of tags as you need.
@@ -13,6 +14,7 @@ Filtrify will then go through all the data attributes you included in your items
 The plugin instanciation is very simple, you just have to pass a "containerID" and a "placeHolderID" which is the ID of the element where you want to place the menu.
 
 Visit filtrify [project page](http://luis-almeida.github.com/filtrify/) to read the documentation.
+
 
 
 ### Demos
@@ -25,11 +27,14 @@ Visit filtrify [project page](http://luis-almeida.github.com/filtrify/) to read 
 - [Reset all filters](http://luis-almeida.github.com/filtrify/reset.html)
 - [Close panel after adding a tag](http://luis-almeida.github.com/filtrify/close.html)
 - [Block "data" attributes from being added as categories](http://luis-almeida.github.com/filtrify/block.html)
-- [Decrease page load with jPages and Lazy Load](http://luis-almeida.github.com/filtrify/jPages.html)
+- [Load images with Lazy Load](http://luis-almeida.github.com/filtrify/lazyload.html)
+- [Add pagination with jPages](http://luis-almeida.github.com/filtrify/jpages.html)
+
 
 
 #### Browser compatibility (tested):
 IE7 (buggy); IE8+, Chrome, Firefox, Opera and Safari (current versions - tested!)
+
 
 
 #### Release log:
