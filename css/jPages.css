@@ -1,0 +1,25 @@
+div#pagination {
+	margin-top: 30px;
+}
+
+div#pagination > a {
+	margin: 0 10px;
+	color: white;
+	text-decoration: none;
+}
+div#pagination a.jp-previous {
+    margin-left: 0;
+}
+
+div#pagination > a.jp-current, 
+div#pagination > a.jp-current:hover,
+div#pagination > a.jp-disabled, 
+div#pagination > a.jp-disabled:hover { 
+	color: #2D3743;
+    cursor: default !important;
+}
+
+div#pagination > span { 
+    margin: 0 5px; 
+    color: #2D3743;
+}

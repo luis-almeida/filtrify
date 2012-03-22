@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="css/sunburst.css">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
 <script src="js/highlight.pack.js"></script>
 <script src="js/script.js"></script>
 
@@ -31,25 +30,34 @@
 <p>by the same author of <a href="http://luis-almeida.github.com/jPages/">jPages</a>, <i>Luís Almeida</i></p>
 
 <a href="https://twitter.com/lmgalmeida" class="twitter-follow-button" data-show-count="false">Follow @lmgalmeida</a>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://luis-almeida.github.com/filtrify/" data-text="Filtrify - Beautiful advanced tag filtering with HTML5 and jQuery" data-via="lmgalmeida">Tweet</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://luis-almeida.github.com/filtrify/" data-text="Beautiful advanced tag filtering with HTML5 and jQuery" data-via="lmgalmeida" data-related="lmgalmeida">Tweet</a>
 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fluis-almeida.github.com%2Ffiltrify%2F&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px;" allowTransparency="true"></iframe>
 <!--<div class="g-plusone" data-size="medium" data-href="http://luis-almeida.github.com/filtrify/"></div>-->
 
 </div>
 
-<div id="main" role="main"><div id="content">
+<div id="main" role="main">
+<div id="content">
+
 <div id="browsers"><em>IE7 - [buggy}</em> <em>IE8+, Chrome, Firefox, Opera, Safari - (tested)</em></div>
-<h2>What?</h2>
+<h2 id="what">What?</h2>
 <p>Filtrify is an advanced tag filtering plugin, inspired by <a href="http://harvesthq.github.com/chosen/" target="_blank">Chosen</a> multiple select feature and Orman Clark’s <a href="http://webdesigntutsplus.s3.amazonaws.com/tuts/291_vertical_menu/demo/index.html" target="_blank">Vertical Navigation Menu</a>.</p>
 <p>Advanced because you can search tags within tags and filter items by multiple tags from different categories and get a live feedback on the number of items containing related tags.</p>
 
-<h2>How?</h2>
+<h2 id="how">How?</h2>
 <p>Filtrify makes use of the new HTML5 "data" attribute to store the metadata.</p>
 <p>All you have to do is for each item in your list, include a "data" attribute with the respective tags (metadata). If you have more than one category of tags, include them in another "data" attribute. You can add as much categories of tags as you need.</p>
 <p>Filtrify will then go through all the data attributes you included in your items and it will create a search menu with as many fields as the different number of categories (data-attributes) you provided. Each field label in the menu fires a "popup" filtering panel and there's where all the magic happens.</p>
 <p>The plugin instanciation is very simple, you just have to pass a "containerID" and a "placeHolderID" which is the ID of the element where you want to place the menu.</p>
 
-<h2>Markup</h2>
+<h2 id="usage">Usage</h2>
+
+<p>Add jQuery, filtrify.js and filtrify.css to the &lt;head&gt; section of your page (correct file locations first):</p>
+
+<pre class="html"><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/fitrify.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/filtrify.css"&gt;
+</code></pre>
 
 <p>The HTML markup is really easy to understand and set up. You just have to be careful about these five things:</p>
 
@@ -87,7 +95,7 @@
 <p>And that's it! Check out the demos below to see it in action.</p>
 
 
-<h2>Demos</h2>
+<h2 id="demos">Demos</h2>
 <ul>
   <li><a href="music.html">Single category</a></li>
   <li><a href="movies.html">Multiple categories</a></li>
@@ -98,16 +106,17 @@
   <li><a href="reset.html">Reset all filters</a></li>
   <li><a href="close.html">Close panel after adding a tag</a></li>
   <li><a href="block.html">Block "data" attributes from being added as categories</a></li>
-  <li><a href="jPages.html">Decrease page load with jPages and Lazy Load</a></li>
+  <li><a href="lazyload.html">Load images with Lazy Load</a></li>
+  <li><a href="jpages.html">Add pagination with jPages</a></li>
 </ul>
 
-<h2>Style</h2>
+<h2 id="style">Style</h2>
 <p>Filtrify default looks was inspired by Orman Clark’s <a href="http://webdesigntutsplus.s3.amazonaws.com/tuts/291_vertical_menu/demo/index.html" target="_blank">Vertical Navigation Menu</a> - see <a href="http://webdesign.tutsplus.com/tutorials/site-elements/orman-clarks-vertical-navigation-menu-the-css3-version/">tutorial</a>.</p>
 <p>The plugin CSS file might look a bit confusing and long at the beggining but I'm sure you'll find it easy to costumize after inspecting the HTML for just a bit.</p>
 <p>Filtrify relies heavily in the ":before" and ":after" pseudo-elements and in the "content" property. If you're not familiar with them, here is a great <a href="http://coding.smashingmagazine.com/2011/07/13/learning-to-use-the-before-and-after-pseudo-elements-in-css/">article</a> to get started. Don't forget that IE8 only supports the "content" property if a !DOCTYPE is specified. If you also want to fully support IE7 you can try <a href="http://code.google.com/p/ie7-js/">IE7.js</a> (not tested!).</p>
 <p>For the icons, I used <a href="http://nodeca.github.com/fontomas/">fontomas</a> to extract only the icons being used from the <a href="http://www.justbenicestudio.com/studio/websymbols/">web symbols</a> and <a href="http://somerandomdude.com/work/iconic/">iconic</a> webfonts. Don't forget to include the font files and correct the url in the CSS file.</p>
 
-<h2>Documentation</h2>
+<h2 id="documentation">Documentation</h2>
 
 <h3>Instantiation:</h3>
 <pre><code>$.filtrify( containerID, placeHolderID, options );</code></pre>
@@ -170,25 +179,22 @@ ft.trigger( query );</code></pre></dd>
 
 <p>See <a href="trigger.html">trigger</a> and <a href="reset">reset</a> demos to have a better understanding of their usage.</p>
 
-<h2>Performance</h2>
-<p>This is the second plugin i publish. The first one was <a href="http://luis-almeida.github.com/jPages/">jPages</a> and once again filtrify is a client side solution for a problem. If I could I would never leave the browser!</p>
-<p>If you were concerned about performance, you probably seen in the demos that filtering function runs really fast even in extended lists with a lot of categories. But of course once again, there's the page load time issue, especially if you have a lot of images in your list.</p>
-<p>If that's the case you can use <a href="http://luis-almeida.github.com/jPages/">jPages</a> with <a href="http://www.appelsiini.net/projects/lazyload">lazy load</a>. You even add pagination, CSS3 or jQuery animations with <a href="http://daneden.me/animate/">Animate.css</a> and a ton of more features jPages provides.</p>
-<p>Se the demo <a href="jpages.html">here</a>.</p>
-
-<h2>Road map</h2>
+<h2 id="contact">Contact</h2>
 <p>I intend to add more features in the future and especially make Filtrify touch friendly and responsive, but it will all depend on the amount of feedback I have from people actually using it. So if you're using Filtrify let me know!</p>
 <p>I'm new to twitter but you can get in touch with me <a style="color:#099;" href="https://twitter.com/#!/lmgalmeida">there</a>. You can also visit my <a style="color:#DCF7DD;" href="https://github.com/luis-almeida">github</a> or send me an <a style="color:#DD4B39;" href="mailto:lmg.almeida@gmail.com">email</a>.</p>
 
-</div></div>
+</div>
+
+</div>
 
 <a id="fork" href="http://github.com/luis-almeida"><img src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 
-<!--<script>
-var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+<script>
+var _gaq=[['_setAccount','UA-30247115-1'],['_trackPageview']];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>-->
+</script>
+
 </body>
 </html>

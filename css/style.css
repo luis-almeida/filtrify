@@ -123,8 +123,8 @@ div#header > iframe {
   height: 20px;
   margin: 0 5px;
 }
-/* put +1 button on a diet */
-#___plusone_0{ width:65px !important; }
+/* put +1 button on a diet 
+#___plusone_0{ width:65px !important; }*/
 
 div#main {
   background: #2D3743 url(../img/bg-main.png) repeat 0 0;
@@ -135,7 +135,7 @@ div#main {
 div#content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px 100px 20px;
+  padding: 0 20px 300px 20px;
   color: white;
   text-shadow: black 0 -1px;
   text-shadow: rgba(0, 0, 0, 0.7) 0 -1px;
@@ -260,7 +260,7 @@ div#content.demo > div#placeHolder {
 div#content.demo > ul { 
   list-style: none; 
   margin: 30px -10px;
-  padding: 0;
+  padding: 0;z
 }
 div#content.demo > ul > li { 
   display: inline-block; 
@@ -276,7 +276,8 @@ div#content.demo > ul > li {
   font-size: 85%;
 }
 div#content.demo > ul > li > img {
-  max-width: 113px;
+  width: 113px;
+  height: 168px;
   margin: 5px 0px;
 }
 div#content.demo > ul > li > span {
@@ -294,15 +295,12 @@ div#content.demo > ul > li > span > i{
 div#content.demo > div#legend {
   margin-top: 30px;
 }
-div#content.demo > div#legend > p > strong {
+div#content.demo > div#legend > p > span {
   margin-right: 15px;
 }
 div#content.demo > div#legend > p > em {
   margin-right: 5px;
-  background: #111111;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 1px 3px;
-  border-radius: 3px;
+  color: #2D3743;
 }
 
 div#content.demo > div#triggers {
@@ -314,7 +312,6 @@ div#content.demo > div#triggers > strong {
 }
 div#content.demo > div#triggers > span {
   margin-right: 30px;
-  padding: 1px 3px;
   cursor: pointer;
 }
 

@@ -64,7 +64,7 @@ ul.ft-menu > li.ft-field > div.ft-panel {
 	left: 50%;
 	margin-left: -105px;
 	z-index: 9999;
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 ul.ft-menu > li.ft-field > div.ft-panel:before,
 ul.ft-menu > li.ft-field > div.ft-panel:after{
@@ -146,11 +146,11 @@ ul.ft-menu > li.ft-field > div.ft-panel > fieldset.ft-search {
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr="#F5F3EE", EndColorStr="#D0CDC9");
 }
 ul.ft-menu > li.ft-field > div.ft-panel > fieldset.ft-search:before {
-	font: normal normal 14px "FiltrifyRegular";
+	font: normal normal 12px "FiltrifyRegular";
 	content: "s";
 	position: absolute;
-	bottom: 14px;
-	left: 17px;
+	bottom: 15px;
+	left: 18px;
 	color: #BBB;
 	text-shadow: none;
 	z-index: 1;

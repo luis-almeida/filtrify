@@ -439,8 +439,7 @@
 
 		this.rewriteFields();
 
-		return this.options.callback !== undefined && $.isFunction( this.options.callback ) ? 
-            this.options.callback( this._query, this._match, this._mismatch ) : false;
+		this.callback();
 
 	};
 
@@ -508,6 +507,12 @@
 			
 		};
 	};
+    
+    Filtrify.prototype.callback = function () {
+        if ( this.options.callback !== undefined && $.isFunction( this.options.callback ) ) {
+            this.options.callback( this._query, this._match, this._mismatch );
+        };
+    };
 
 	Filtrify.prototype.trigger = function ( query ) {
 		var f;

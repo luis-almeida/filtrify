@@ -33,4 +33,4 @@ IE7 (buggy); IE8+, Chrome, Firefox, Opera and Safari (current versions - tested!
 
 
 #### Release log:
-First release - v0.1 (20.03.2012)
+First release - v0.1 (22.03.2012)
