@@ -265,12 +265,12 @@ ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar {
     width: 10px;
 }
 ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
     background: #DDD;
 }
 ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    margin: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    background: #EEE;
 }
 
