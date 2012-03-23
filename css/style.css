@@ -120,8 +120,9 @@ div#header > p {
 }
 
 div#header > iframe {
-  height: 20px;
   margin: 0 5px;
+  vertical-align: top;
+  max-height: 21px;
 }
 /* put +1 button on a diet 
 #___plusone_0{ width:65px !important; }*/

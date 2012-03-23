@@ -1,4 +1,4 @@
-/* icons */
+/* icons font-face */
 @font-face {
     font-family: "FiltrifyRegular";
     src: url("../font/filtrify/filtrify-webfont.eot");
@@ -28,12 +28,6 @@ ul.ft-menu {
 	list-style: none;
 }
 
-ul.ft-menu:before {
-	font-weight: bold;
-	font-style: italic;
-	margin-right: 30px;
-}
-
 ul.ft-menu > li.ft-field { 
 	display: inline-block; 
 	*display: inline; 
@@ -43,12 +37,24 @@ ul.ft-menu > li.ft-field {
 	position: relative !important;
 }
 
-
-ul.ft-menu > li.ft-field > span.ft-label { cursor: pointer; }
-ul.ft-menu > li.ft-field > span.ft-label:before{ font-family: "FiltrifyRegular"; content: "t"; margin-right: 15px; }
-ul.ft-menu > li.ft-field > span.ft-label:after{ font-size: 80%; content: " \25bc"; }
-ul.ft-menu > li.ft-field > span.ft-label.ft-active:before{ content: "T"; color: #2D3743; }
-ul.ft-menu > li.ft-field > span.ft-label.ft-opened:after{ content: " \25b2"; }
+ul.ft-menu > li.ft-field > span.ft-label { 
+    cursor: pointer; 
+}
+ul.ft-menu > li.ft-field > span.ft-label:before { 
+    font-family: "FiltrifyRegular"; 
+    content: "t"; 
+    margin-right: 15px; 
+}
+ul.ft-menu > li.ft-field > span.ft-label:after { 
+    font-size: 80%; content: " \25bc"; 
+}
+ul.ft-menu > li.ft-field > span.ft-label.ft-active:before { 
+    content: "T"; 
+    color: #2D3743; 
+}
+ul.ft-menu > li.ft-field > span.ft-label.ft-opened:after { 
+    content: " \25b2"; 
+}
 
 ul.ft-menu > li.ft-field > div.ft-panel { 
 	position: absolute; 
@@ -67,7 +73,7 @@ ul.ft-menu > li.ft-field > div.ft-panel {
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 ul.ft-menu > li.ft-field > div.ft-panel:before,
-ul.ft-menu > li.ft-field > div.ft-panel:after{
+ul.ft-menu > li.ft-field > div.ft-panel:after {
 	position: absolute;
 	content: " ";
 	height: 0;
@@ -251,4 +257,20 @@ ul.ft-menu > li.ft-field > div.ft-panel > div.ft-mismatch {
 }
 
 /* REQUIRED! */
-.ft-hidden{ display: none !important; }
+.ft-hidden { display: none !important; }
+
+
+/* Custom webkit scrollbars */
+ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar {
+    width: 10px;
+}
+ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    background: #DDD;
+}
+ul.ft-menu > li.ft-field > div.ft-panel > ul.ft-tags::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin: 3px;
+}
+
