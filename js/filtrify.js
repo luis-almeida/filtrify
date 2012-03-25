@@ -106,7 +106,7 @@
 		"<span class='ft-label'>" + f + "</span>" + 
 		"<div class='ft-panel ft-hidden'>" +
 		"<ul class='ft-selected' style='display:none;'></ul>" +
-		"<fieldset class='ft-search'><input type='text' /></fieldset>" +
+		"<fieldset class='ft-search'><input type='text' placeholder='Search' /></fieldset>" +
 		"<ul class='ft-tags'>";
 
 		for ( tag in this._fields[f] ) {
