@@ -6,13 +6,13 @@
 		block     : [],
 		close     : false,
 		query     : undefined, // { field1 : [tags] } }
-		callback : undefined // function ( query, match, mismatch ) {}
+		callback : undefined, // function ( query, match, mismatch ) {}
+		match: false,//show or hide no matches
 	}; 
 
 	function Filtrify( containerID, placeholderID, options ) {
 
 		this.options = $.extend({}, defaults, options) ;
-
 		this._container = $( "#" + containerID );
 		this._holder = $( "#" + placeholderID );
 		this._items = this._container.children();
@@ -87,7 +87,7 @@
 
 		for ( f; f < this._order.length; f++ ) {
 			field = browser.webkit || browser.opera ? 
-				this._order[f] : this._order[ this._order.length - f - 1 ];
+			this._order[f] : this._order[ this._order.length - f - 1 ];
 			this._menu[ field ] = {};
 			this.build( field );
 			this.cache( field );
@@ -117,7 +117,8 @@
 
 		for ( t = 0; t < tags.length; t++ ) {
 			tag = tags[t];
-			html += "<li data-count='" + this._fields[f][tag] + "' >" + tag + "</li>";
+				html += "<li data-count='" + this._fields[f][tag] + "' >" + tag + "</li>";
+
 		};
 
 		html += "</ul><div class='ft-mismatch ft-hidden'></div></div></li>";
@@ -475,8 +476,12 @@
 				.each( this._bind( function( index, element ) {
 					var tag = ( element.textContent || element.innerText ),
 						count = this._fields[field][tag] === undefined ? 0 : this._fields[field][tag];
-
-					element.setAttribute("data-count", count );
+					if(this.options.match && count<=0 ){
+						$(element).hide();	
+					}else{	
+						$(element).show();
+						element.setAttribute("data-count", count );
+					}
 				}, this ) );
 		};
 	};
