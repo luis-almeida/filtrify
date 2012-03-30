@@ -23,6 +23,8 @@
 		this._query = {};
 		this._match = [];
 		this._mismatch = [];
+		this.totals=[];//saves the # of options available/panel
+		this.selectedOptions=[];//saves the # of options selected/panel
 		this._z = 9999;
 
 		this._bind = function ( fn, me ) { 
@@ -75,7 +77,6 @@
 			};
 
 			this._matrix.push( data );
-
 		}, this ) );
 	};
 
@@ -105,9 +106,12 @@
 		html = "<li class='ft-field'>" + 
 		"<span class='ft-label'>" + f + "</span>" + 
 		"<div class='ft-panel ft-hidden'>" +
-		"<ul class='ft-selected' style='display:none;'></ul>" +
-		"<fieldset class='ft-search'><input type='text' placeholder='Search' /></fieldset>" +
-		"<ul class='ft-tags'>";
+		"<ul class='ft-selected' style='display:none;'></ul>";
+		if(this.options.search){
+			html+="<fieldset class='ft-search'><input type='text' placeholder='Search' /></fieldset>";
+		}
+		
+		html+="<ul class='ft-tags'>";
 
 		for ( tag in this._fields[f] ) {
 			tags.push( tag );
@@ -307,12 +311,18 @@
 
 		this.hideMismatch( f );
 	};
+	Filtrify.prototype.handleSearch=function(f){
+		//console.log($(f).find('.ft-active').children.length);
+		//console.log($('.ft-label ft-opened ft-active').children().length);
+		//var obj=$(f).find('.ft-active');
+		//console.log(obj);
+		//console.log($(obj).siblings().find(".ft-tags").children().attr("display: block").length);
+	}
 
 	Filtrify.prototype.showResults = function ( f, txt ) {
 		var results = 0;
 
 		this.hideMismatch( f );
-
 		this._menu[f].tags
 			.children()
 			.not(this._menu[f].active)
@@ -343,6 +353,7 @@
 		if ( this.options.close ) {
 			this.closePanel( f );
 		};
+		this.handleSearch(f);
 	};
 
 	Filtrify.prototype.updateQueryTags = function ( f, tag ) {
@@ -369,7 +380,13 @@
 	};
 
 	Filtrify.prototype.addToActive = function ( f ) {
+		var selected=this.getNumSelected(f)
+		this.setNumSelected(f,++selected);
+		var childs=this.getNumChilds(f);
+		childs--;
+		this.setNumChilds(childs)
 		this._menu[f].active = this._menu[f].active.add( this._menu[f].highlight );
+
 	};
 
 	Filtrify.prototype.unselect = function ( f, tag ) {
@@ -470,22 +487,45 @@
 
 	Filtrify.prototype.rewriteFields = function () {
 		var field;
+		var total_count= new Array();
 		for ( field in this._fields ) {
+			this._menu[field].count=0;
 			this._menu[field].tags
 				.children()
 				.each( this._bind( function( index, element ) {
+					
 					var tag = ( element.textContent || element.innerText ),
 						count = this._fields[field][tag] === undefined ? 0 : this._fields[field][tag];
 					if(this.options.match && count<=0 ){
-						$(element).hide();	
+						$(element).hide();
+
 					}else{	
 						$(element).show();
 						element.setAttribute("data-count", count );
+						this._menu[field].count++;
 					}
 				}, this ) );
+		
+				this.setNumChilds(field,this._menu[field].count-this.getNumSelected(field));
+				console.log("options available = " +this.getNumChilds(field));
 		};
 	};
 
+	//returns the number of chils/menu
+	Filtrify.prototype.getNumChilds=function(field){
+		return this.totals[field];
+
+	}
+	Filtrify.prototype.setNumChilds=function(field,value){
+		this.totals[field]=value;
+	}
+	Filtrify.prototype.getNumSelected=function(field){
+		 if(this.selectedOptions[field]===undefined){return 0}else{return this.selectedOptions[field]};
+
+	}
+	Filtrify.prototype.setNumSelected=function(field,value){
+		this.selectedOptions[field]=value;
+	}
 	Filtrify.prototype.resetCachedMatch = function () {
 		this._match = [];
 		this._mismatch = [];
