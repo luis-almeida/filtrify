@@ -23,7 +23,7 @@
 		this._query = {};
 		this._match = [];
 		this._mismatch = [];
-		this.totals=[];//saves the # of options available/panel
+		this.totals=[];//saves the # of  available options/panel
 		this.selectedOptions=[];//saves the # of options selected/panel
 		this._z = 9999;
 
@@ -507,11 +507,13 @@
 				}, this ) );
 		
 				this.setNumChilds(field,this._menu[field].count-this.getNumSelected(field));
-				console.log("options available = " +this.getNumChilds(field));
+				var str = "available options on "+field +"'s panel = " +this.getNumChilds(field)+",";
+				str+=String(this.getNumSelected(field)) +" options have been selected on this panel";
+				console.log(str);
 		};
 	};
 
-	//returns the number of chils/menu
+	//returns the number of options available on a menu
 	Filtrify.prototype.getNumChilds=function(field){
 		return this.totals[field];
 
@@ -519,8 +521,13 @@
 	Filtrify.prototype.setNumChilds=function(field,value){
 		this.totals[field]=value;
 	}
+	//returns how many optios has being selected on a menu
 	Filtrify.prototype.getNumSelected=function(field){
-		 if(this.selectedOptions[field]===undefined){return 0}else{return this.selectedOptions[field]};
+		 if(this.selectedOptions[field]===undefined){
+		 	return 0;
+		 }else{
+		 	return this.selectedOptions[field]
+		 };
 
 	}
 	Filtrify.prototype.setNumSelected=function(field,value){
