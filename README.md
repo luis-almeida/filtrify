@@ -33,9 +33,13 @@ Visit filtrify [project page](http://luis-almeida.github.com/filtrify/) to read 
 
 
 #### Browser compatibility (tested):
-IE7 (buggy); IE8+, Chrome, Firefox, Opera and Safari (current versions - tested!)
+IE7 (buggy);  
+IE8+, Chrome, Firefox, Opera and Safari (current versions)
 
 
 
-#### Release log:
+#### Release log:  
+Bug fix: 1px jump when toggling the filter - v0.1.1 (01.04.2012)  
 First release - v0.1 (22.03.2012)
+
+
