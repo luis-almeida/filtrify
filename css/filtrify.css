@@ -43,7 +43,10 @@ ul.ft-menu > li.ft-field > span.ft-label {
 ul.ft-menu > li.ft-field > span.ft-label:before { 
     font-family: "FiltrifyRegular"; 
     content: "t"; 
-    margin-right: 15px; 
+    display: inline-block; 
+    *display: inline; 
+	*zoom: 1;
+    width: 20px;
 }
 ul.ft-menu > li.ft-field > span.ft-label:after { 
     font-size: 80%; 
@@ -52,7 +55,6 @@ ul.ft-menu > li.ft-field > span.ft-label:after {
 ul.ft-menu > li.ft-field > span.ft-label.ft-active:before { 
     content: "T"; 
     color: #2D3743; 
-    margin-right: 14px; 
 }
 ul.ft-menu > li.ft-field > span.ft-label.ft-opened:after { 
     content: " \25b2"; 
