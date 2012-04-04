@@ -40,14 +40,14 @@ IE8+, Chrome, Firefox, Opera and Safari (current versions)
 
 #### Release log:  
 
-v0.2 (04.04.2012)  
-- Isotope integration demo added
+#####v0.2 (04.04.2012)  
+- Isotope integration demo added  
 - Bug fix: search icon disappearance issue in the "jPages" demo
 
-v0.1.1 (01.04.2012)  
-- Bug fix: 1px jump when toggling the filter
+#####v0.1.1 (01.04.2012)  
+- Bug fix: 1px jump when toggling the filter  
 
-v0.1 (22.03.2012)
+#####v0.1 (22.03.2012)  
 - First release
 
 
