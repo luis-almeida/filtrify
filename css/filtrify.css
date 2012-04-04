@@ -159,6 +159,7 @@ ul.ft-menu > li.ft-field > div.ft-panel > fieldset.ft-search:before {
 	font: normal normal 12px "FiltrifyRegular";
 	content: "s";
 	position: absolute;
+    width: 20px;
 	bottom: 15px;
 	left: 18px;
 	color: #BBB;
