@@ -13,7 +13,7 @@ All you have to do is include a "data" attribute for each item in your list with
 Filtrify will then go through all the data attributes you included in your items and it will create a search menu with as many fields as the different number of categories (data-attributes) you provided. Each field label in the menu fires a "popup" filtering panel and there's where all the magic happens.  
 The plugin instanciation is very simple, you just have to pass a "containerID" and a "placeHolderID" which is the ID of the element where you want to place the menu.
 
-Visit filtrify [project page](http://luis-almeida.github.com/filtrify/) to read the documentation.
+Visit filtrify's [project page](http://luis-almeida.github.com/filtrify/) to read the documentation.
 
 
 
