@@ -16,7 +16,8 @@
 		block     : [],
 		close     : false,
 		query     : undefined, // { category : [tags] } }
-		callback  : undefined // function ( query, match, mismatch ) {}
+		callback  : undefined, // function ( query, match, mismatch ) {}
+		exclusivePanel : true //When a panel is opened, close all others.
 	}; 
 
 	function Filtrify( containerID, placeholderID, options ) {
@@ -229,10 +230,23 @@
 	};
 
 	Filtrify.prototype.openPanel = function ( f ) {
+		if (this.options.exclusivePanel){
+					this.closeAllOtherPanels(f)
+			}		
 		this._menu[f].label.toggleClass("ft-opened");
 		this._menu[f].panel.toggleClass("ft-hidden");
 		this._menu[f].search.find("input").focus();
+
 	};
+
+	Filtrify.prototype.closeAllOtherPanels = function ( f ){
+		for (var i in this._order){
+			var menu =this._order[i];
+			if (menu != f)
+		 			this.closePanel(menu);
+		 		}
+	};
+
 
 	Filtrify.prototype.closePanel = function ( f ) {
 		this.resetSearch( f );
