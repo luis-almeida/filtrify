@@ -91,7 +91,7 @@
 
 	Filtrify.prototype.set = function () {
 		var f = 0, field,
-			browser = $.browser;
+			browser = navigator.userAgent;
 
 		this._menu.list = $("<ul class='ft-menu' />");
 
