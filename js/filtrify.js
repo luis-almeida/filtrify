@@ -11,13 +11,14 @@
 ;(function ( $, window, document, undefined ) {
 
 	var defaults = {
+        separator : ', ', //This helps to define custom separator like ^^ or !!
 		noresults : "No results match",
 		hide      : true,
 		block     : [],
 		close     : false,
 		query     : undefined, // { category : [tags] } }
 		callback  : undefined // function ( query, match, mismatch ) {}
-	}; 
+	};
 
 	function Filtrify( containerID, placeholderID, options ) {
 
@@ -35,12 +36,12 @@
 		this._mismatch = [];
 		this._z = 9999;
 
-		this._bind = function ( fn, me ) { 
-			return function () { 
-				return fn.apply( me, arguments ); 
-			}; 
+		this._bind = function ( fn, me ) {
+			return function () {
+				return fn.apply( me, arguments );
+			};
 		};
-		
+
 		this.init();
 
 	};
@@ -49,7 +50,7 @@
 		this.load();
 		this.set();
 
-		if ( this.options.query !== undefined ) { 
+		if ( this.options.query !== undefined ) {
 			this.trigger( this.options.query );
 		};
 	};
@@ -66,7 +67,7 @@
 				name = attr[i].name;
 				if ( name.indexOf( "data-" ) === 0 && $.inArray( name, this.options.block ) === -1 ) {
 					field = name.replace(/data-/gi, "").replace(/-/gi, " ");
-					tags = element.getAttribute( name ).split(", ");
+					tags = element.getAttribute( name ).split(this.options.separator);
 					data[field] = tags;
 
 					if ( this._fields[field] === undefined ) {
@@ -96,7 +97,7 @@
 		this._menu.list = $("<ul class='ft-menu' />");
 
 		for ( f; f < this._order.length; f++ ) {
-			field = browser.webkit || browser.opera ? 
+			field = browser.webkit || browser.opera ?
 				this._order[f] : this._order[ this._order.length - f - 1 ];
 			this._menu[ field ] = {};
 			this.build( field );
@@ -111,9 +112,9 @@
 
 	Filtrify.prototype.build = function ( f ) {
 		var html, t, tag, tags = [];
-			
-		html = "<li class='ft-field'>" + 
-		"<span class='ft-label'>" + f + "</span>" + 
+
+		html = "<li class='ft-field'>" +
+		"<span class='ft-label'>" + f + "</span>" +
 		"<div class='ft-panel ft-hidden'>" +
 		"<ul class='ft-selected' style='display:none;'></ul>" +
 		"<fieldset class='ft-search'><input type='text' placeholder='Search' /></fieldset>" +
@@ -177,8 +178,8 @@
 
 		this._menu[f].search.on( "keyup", "input", this._bind(function(event){
 
-			if ( event.which === 38 || event.which === 40 ) { 
-				return false; 
+			if ( event.which === 38 || event.which === 40 ) {
+				return false;
 			} else if ( event.which === 13 ) {
 				if ( this._menu[f].highlight.length ) {
 					this.select( f );
@@ -392,8 +393,8 @@
 	Filtrify.prototype.removeFromSelected = function ( f, tag ) {
 		this._menu[f].selected
 			.children()
-			.filter(function() { 
-				return ( this.textContent || this.innerText ) === tag; 
+			.filter(function() {
+				return ( this.textContent || this.innerText ) === tag;
 			})
 			.remove();
 
@@ -401,8 +402,8 @@
 	};
 
 	Filtrify.prototype.removeFromActive = function ( f, tag ) {
-		this._menu[f].active = this._menu[f].active.filter(function() { 
-			return ( this.textContent || this.innerText ) !== tag; 
+		this._menu[f].active = this._menu[f].active.filter(function() {
+			return ( this.textContent || this.innerText ) !== tag;
 		});
 	};
 
@@ -426,7 +427,7 @@
 			for ( f in this._query ) {
 
 				c = 0;
-				
+
 				for ( t = this._query[f].length - 1; t >= 0; t-- ) {
 					if ( $.inArray( this._query[f][t], this._matrix[r][f] ) !== -1 ) {
 						c = c + 1;
@@ -435,8 +436,8 @@
 
 				if ( !this._query[f].length  || c >= this._query[f].length ) {
 					// match!
-				} else { 
-					m = false; 
+				} else {
+					m = false;
 				};
 
 			};
@@ -455,7 +456,7 @@
 
 	Filtrify.prototype.updateFields = function ( row, match ) {
 		var field, tags, t;
-		
+
 		for ( field in this._fields ) {
 			if ( row === this._matrix.length - 1 ) {
 				this._fields[field] = {};
@@ -514,10 +515,10 @@
 			} else {
 				if ( !hidden ) this._items[row].className = this._items[row].className + " ft-hidden";
 			};
-			
+
 		};
 	};
-    
+
     Filtrify.prototype.callback = function () {
         if ( this.options.callback !== undefined && $.isFunction( this.options.callback ) ) {
             this.options.callback( this._query, this._match, this._mismatch );
@@ -533,7 +534,7 @@
 			this.updateActiveClass( f );
 			this.updatePanel( f );
 			this.toggleSelected( f );
-		}; 
+		};
 
 		this.filter();
 	};
@@ -558,9 +559,9 @@
 			tags = this._menu[f].tags.children().removeClass("ft-hidden");
 
 		for ( t; t < this._query[f].length; t++ ) {
-			
+
 			tag = tags.filter( this._bind( function( index ) {
-				return ( tags[index].textContent || tags[index].innerText ) === this._query[f][t]; 
+				return ( tags[index].textContent || tags[index].innerText ) === this._query[f][t];
 			}, this ));
 
 			this._menu[f].selected.append( tag.clone() );
@@ -580,10 +581,10 @@
 	Filtrify.prototype.reset = function() {
 		this.trigger({});
 	};
-	
+
 
 	$.filtrify = function( containerID, placeholderID, options ) {
 		return new Filtrify( containerID, placeholderID, options );
 	};
-	
+
 })(jQuery, window, document);
