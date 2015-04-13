@@ -294,7 +294,7 @@
 
 	Filtrify.prototype.showMismatch = function ( f, txt ) {
 		this._menu[f].mismatch
-			.html( this.options.noresults + " \"<b>" + txt + "</b>\"")
+			.html( this.options.noresults + " \"<b>" + txt.replace(/<(?:.|\n)*?>/gm, '') + "</b>\"")
 			.removeClass("ft-hidden");
 	};
 
