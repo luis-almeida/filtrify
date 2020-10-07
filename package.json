@@ -1,0 +1,19 @@
+{
+  "name": "filtrify",
+  "version": "1.0.0",
+  "description": "Filtrify is an advanced tag filtering plugin, inspired by Chosen multiple select feature and Orman Clark’s Vertical Navigation Menu. Advanced because you can search tags within tags and filter items by multiple tags from different categories and get a live feedback on the number of items containing related tags.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luis-almeida/filtrify.git"
+  },
+  "author": "Luis Almeida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luis-almeida/filtrify/issues"
+  },
+  "homepage": "https://github.com/luis-almeida/filtrify#readme"
+}
